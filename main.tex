@@ -7,6 +7,8 @@
 \usepackage{mathtools, mathrsfs}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{float}
+\usepackage{hyperref}
 
 \newcommand{\Bb}[1]{\mathbb{#1}}
 \newcommand{\Bf}[1]{\mathbf{#1}}
@@ -27,11 +29,11 @@
 \renewcommand{\phi}{\varphi}
 
 % Gegevens
-\title{Final exam Fundamentals of Photonics\\
-      \large 25 maart 2020\footnote{This exam was probably meant as the resit for 2019, but wasn't used.
-It was used as the 2020 final exam instead.}} % Datum van tentamen
+\title{Final exam Fundamentals of Photonics 2019/2020\\
+      \large 25 maart 2020\footnote{This exam was probably meant as 2019's resit, which wasn't held.
+It was used as 2020's final exam.}} % Datum van tentamen
 
-\author{Siem de Jong\footnote{Altough these solution were written carefully, I could've made mistakes. If you find one, please let me know.} \\ siem.dejong@student.uva.nl}
+\author{Siem de Jong\footnote{Altough these solution were written with care, I could've made mistakes. If you find one, please let me know.} \\ \url{siem.dejong@student.uva.nl}}
 \date{\today} % Datum van uitwerken
 
 \begin{document}
@@ -43,11 +45,16 @@ It was used as the 2020 final exam instead.}} % Datum van tentamen
 \begin{questions}
 
   \question[5] For the first three questions select the correct answer from multiple choices and for the last two questions fill the correct answer in the blank area.
-  %TODO ADD THE MULTIPLE CHOICES
   
   \begin{parts}
 
-    \part[1] The phase difference ($\phi$) and path difference ($\Delta L$) are related by $\phi = $
+    \part[1] The phase difference ($\phi$) and path difference ($\Delta L$) are related by $\phi = $  
+    \begin{enumerate}
+    \item[a] $\frac{2\pi}{\lambda}\Delta L$
+    \item[b] $\frac{2\lambda}{\pi}\Delta L$
+    \item[c] $\frac{\pi}{2\lambda}\Delta L$
+    \item[c] $\frac{\lambda}{2\pi}\Delta L$
+	\end{enumerate}    
     \begin{solution}
     	$\frac{2\pi}{\lambda} \Delta L.$
       Phase difference is a quantity with degrees or radians as units, so we can drop option b and d.
@@ -55,24 +62,43 @@ It was used as the 2020 final exam instead.}} % Datum van tentamen
     \end{solution}
 
     \part[1] A phase difference $\pi$ between two interfering beams is equivalent to a path difference
+	\begin{enumerate}
+		\item[a] $\lambda$,
+		\item[b] $\lambda/2$,
+		\item[c] $\lambda/4$,
+		\item[d] $\lambda/8$.
+	\end{enumerate}	    
     \begin{solution}
       $\lambda/2$.
-      Plug $\pi$ in the equation of subquestion a and solve for the path difference.
+      Plug $\pi$ in the equation of the previous question and solve for the path difference.
     \end{solution}
     
     \part[1] When a light wave incident perpendicular to a surface is reflected at the surface of an optically denser medium, then the change in the phase difference is
+    \begin{enumerate}
+    \item[a] $\pi/2$,
+    \item[b] $\pi/4$,
+    \item[c] $\pi$,
+    \item[d] $2\pi$.
+    \end{enumerate}
     \begin{solution}
-      $\pi$.
+      "The component of the electric field normal to the plane-of-incidence undergoes a phase shift of $\pi$ radians upon reflection when the incident medium has a lower index than the transmitting mdeium." If you'd like to get a mathematical explanation (using a Fresnel Equation), I suggest you read E. Hecht, \emph{Optics} (Harlow: Pearson Education Limited, 2017), 228.
     \end{solution}
     
-    \part[1] If $D$ is the distance to the screen in Young's double slit experiment, then fringe width $\beta$ decreases with \ldots in $D$.
+    \part[1] If $D$ is the distance to the screen in Young's double slit experiment, then fringe width $\beta$ decreases with \underline{\hspace{3cm}} in $D$.
     \begin{solution}
-      decrease
+      We have the relation
+      \begin{displaymath}
+      	\beta \approx \frac{m\lambda D}{d},
+      \end{displaymath}
+      where $m \in \mathbb{Z}$ and $d$ the slitwidth.
+      From this, we can state that $\beta$ decreases with \emph{decrease} in $D$.
     \end{solution}
 
-	\part[1] If two waves maintain constant phase difference or equal phase at any two points on a wavefront is known as
+	\part[1] If two waves maintain constant phase difference or equal phase at any two points on a wavefront is known as \underline{\hspace{3cm}}.
     \begin{solution}
       spatial coherence.
+      Don't confuse spatial coherence with temporal coherence.
+      Temporal coherence is a quantity which tells you how monochromatic a source is.
     \end{solution}
 
   \end{parts}
@@ -81,12 +107,19 @@ It was used as the 2020 final exam instead.}} % Datum van tentamen
 	\begin{solution}
 		An optical mode in a waveguide is the field pattern of propagating waves.
 		In the next picture, the first three modes are illustrated.
-		%TODO MODES PICTURE
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{figures/wgmodes}
+		\end{figure}
 		Optical modes can have it's electric field or magnetic field entirely transverse.
 		These modes are then called TE or TM modes respectively.
 	\end{solution}
 
 	\question[5] One of the methods to couple input light into an optical waveguide is prism coupling where you place a glass prism on top the optical waveguide. Explain why a prism is needed in this configuration?
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/prismcoupling}
+	\end{figure}
 	\begin{solution}
 		In an optical waveguide, we need light to undergo total internal reflection to make it propagate to the other side of the guide.
 		If the light comes in at $\gamma_m$ (fixed) and has to go out at $\gamma_m$, then we need the prisms to assure the light is coming in the waveguide at such an angle that the internal reflections occur at the critical angle to prevent loss of the light.
@@ -109,14 +142,21 @@ It was used as the 2020 final exam instead.}} % Datum van tentamen
 	\begin{solution}
 		An optical microscope makes use of guassian beam.
 		Here's an illustration of such a beam.
-		%TODO ILLUSTRATION OF GAUSSIAN BEAM.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.1]{figures/gaussian}
+		\end{figure}
 		$b$ is the depth of focus and is related to the numerical aperture $\mathrm{NA}$ by $b=2 n \omega_0 / \mathrm{NA} = 2 Z_R$.
 		So with a higher $\mathrm{NA}$, the depth of focus gets smaller.
 		Also, $\omega_0$ is considered the beam waist and is roughly related to $\mathrm{NA}$ by $\omega_0 \propto \frac{1}{\mathrm{NA}}$, which results in a smaller beam waist if the numerical aperature gets higher.
 	\end{solution}
 		
-	\question[5] A beam of light with intensity I0 passes through two linear polarizers as shown above. The intensity of the final beam is $1/8 I_0$.
+	\question[5] A beam of light with intensity $I_0$ passes through two linear polarizers as shown above. The intensity of the final beam is $1/8 I_0$.
 	Write down one possible polarization state of the input light that can result in this power output.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/polarizers}
+	\end{figure}		
 	\begin{solution}
 		For this questoin we need Malus' law:
 		\begin{displaymath}
@@ -129,12 +169,16 @@ It was used as the 2020 final exam instead.}} % Datum van tentamen
 			&= \SI{45}{\degree}.
 		\end{align*}	
 		So we need linearly polarized light at angle \SI{45}{\degree}.
-		%TODO PLAATJE 45 GRADEN		
 	\end{solution}
-	
+
+\newpage
 \part{Open book questions}
 \setcounter{question}{0}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/liquidsensor}
+\end{figure}
 \question[10] Above you see a liquid level sensor, which is comprised of two fibers and a prism.
 Explain the working principle of this system.
 \begin{solution}
@@ -149,6 +193,10 @@ Explain the working principle of this system.
 \end{solution}
 
 \question[15] An unpolarized light with an intensity of $I_0$ is incident on two linear polarizers (\SI{45}{\degree} and \SI{60}{\degree}) and a quarter-wave plate (QWP).
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/polarizers2}
+\end{figure}
 \begin{parts}
 	\part What is $I_1$ in terms of $I_0$?
 	Explain your answer.
@@ -224,7 +272,10 @@ If these two waves superimpose ate a point $P$, show that the intensity at $P$ i
 \end{solution}
 
 \question[10] Waveguide coupler
-%TODO PICTURE COUPLER
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/coupler}
+\end{figure}
 \begin{parts}
 	\part[3] Explain the general operating principle of the waveguide coupler shown above.
 	\begin{solution}
@@ -233,12 +284,19 @@ If these two waves superimpose ate a point $P$, show that the intensity at $P$ i
 		This hopping of the light occurs until the end of the coupler.
 		Because the two waveguides are close to each other, we say they are coupled.
 		If the two waveguides were single mode, then the collection is a two-mode structure and there's an antisymmetric and symmetric mode.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{figures/modesincoupler}
+		\end{figure}
 	\end{solution}
 	\part[2] Explain how the waveguide coupler can be used to split the incoming signal in two equal output signals A and B.
 	\begin{solution}
 		Because of the hopping nature of the structure, the light can be partly in one of the waveguides.
 		If this part of the light is equal to the other part in the other waveguide, then we can stop the coupling there and the output signals at A and B are equal.
-		%TODO SKETCH EQUAL COUPLER
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{figures/hopping}
+		\end{figure}
 	\end{solution}
 	\part[2] In order to make the coupling ratio variable, what kind of a mechanism can be used?
 	\begin{solution}
@@ -250,7 +308,10 @@ If these two waves superimpose ate a point $P$, show that the intensity at $P$ i
 		This makes the waveguide asymmetric.
 		The light will never fully escape waveguide B and if the increase in width of B is big enough, the power in A will never be higher than B.
 		In that case, it's also not possible to have the two outputs be exactly the same.
-		%TODO picture symmetric/asymmetric distance vs optical power
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.8]{figures/symmetriccoupler}
+		\end{figure}
 		Also, if B is wide enough, then it won't be single mode, so there will be more scattering in the core which is not desirable.
 	\end{solution}
 \end{parts}
@@ -258,7 +319,10 @@ If these two waves superimpose ate a point $P$, show that the intensity at $P$ i
 \question[10] White light in air shines on an oil film that floats on water with an incident angle of \SI{90}{\degree} as shown below.
 When looking straight down at the film, the reflected light is red, with a wavelength of \SI{636}{\nano\meter}.
 What is the minimum possible thickness of the film?
-%TODO PICTURE OF FILM.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/oilfilm}
+\end{figure}
 \begin{solution}
 	White light contains a continious spectrum of wavelengths, but if we only want to have constructive interference after reflection, we have to meet the constructive interference condition for $\lambda=\SI{636}{\nano\meter}$.
 	The air and the water both have lower refractive indices than oil, so at the first reflection there will be a $\pi$ phase shift.
@@ -267,7 +331,7 @@ What is the minimum possible thickness of the film?
 	We got
 	\begin{align*}
 		2 n_{oil} t_m &= \left(m+\frac{1}{2}\right)\lambda \\
-		t_m = \frac{1}{2n_{oil}}\left(m+\frac{1}{2}\right)\lambda.
+		t_m &= \frac{1}{2n_{oil}}\left(m+\frac{1}{2}\right)\lambda.
 	\end{align*}
 	The minimum possible thickness is then
 	\begin{align*}
@@ -281,12 +345,20 @@ On your schematic write down each components' name explicitly and mention their 
 \begin{parts}
 	\part Mach Zehnder interferometer (MZI)
 	\begin{solution}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{figures/mzinterferometer}
+		\end{figure}
 		If there's no sample then the two beams will constructively interfere at detector 1 and destructively interfere at detector 2.
 		If we put a sample inside the left beam, this sample beam will be slightly phaseshifted and thus there will be different interference patterns at the detector.
 		From this, it's possible to deduce the phase shift caused by the sample.
 	\end{solution}
 	\part Michelson interferometer (MI)
 	\begin{solution}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=.5]{figures/minterferometer}
+		\end{figure}
 		Here we have a low coherent light source going through a collimating lens so we can bounce the light useful off mirrors.
 		The beam gets split to the sample and a reference arm.
 		The beam to the reference arm can be rotated so different points of the sample get imaged.
