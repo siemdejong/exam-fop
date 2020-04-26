@@ -33,7 +33,7 @@
       \large 25 maart 2020\footnote{This exam was probably meant as 2019's resit, which wasn't held.
 It was used as 2020's final exam.}} % Datum van tentamen
 
-\author{Siem de Jong\footnote{Altough these solution were written with care, I could've made mistakes. If you find one, please let me know.} \\ \url{siem.dejong@student.uva.nl}}
+\author{Siem de Jong\footnote{Altough these solution were written with care, I could've made mistakes. If you find one, please let me know.} \\ \href{mailto:siem.dejong@student.uva.n}{siem.dejong@student.uva.nl}}
 \date{\today} % Datum van uitwerken
 
 \begin{document}
@@ -81,7 +81,7 @@ It was used as 2020's final exam.}} % Datum van tentamen
     \item[d] $2\pi$.
     \end{enumerate}
     \begin{solution}
-      "The component of the electric field normal to the plane-of-incidence undergoes a phase shift of $\pi$ radians upon reflection when the incident medium has a lower index than the transmitting mdeium." If you'd like to get a mathematical explanation (using a Fresnel Equation), I suggest you read E. Hecht, \emph{Optics} (Harlow: Pearson Education Limited, 2017), 228.
+      ``The component of the electric field normal to the plane-of-incidence undergoes a phase shift of $\pi$ radians upon reflection when the incident medium has a lower index than the transmitting mdeium." If you'd like to get a mathematical explanation (using a Fresnel Equation), I suggest you read E. Hecht, \emph{Optics} (Harlow: Pearson Education Limited, 2017), 228.
     \end{solution}
     
     \part[1] If $D$ is the distance to the screen in Young's double slit experiment, then fringe width $\beta$ decreases with \underline{\hspace{3cm}} in $D$.
@@ -90,7 +90,7 @@ It was used as 2020's final exam.}} % Datum van tentamen
       \begin{displaymath}
       	\beta \approx \frac{m\lambda D}{d},
       \end{displaymath}
-      where $m \in \mathbb{Z}$ and $d$ the slitwidth.
+      where $m \in \mathbb{Z}$ and $d$ the distance between the slits.
       From this, we can state that $\beta$ decreases with \emph{decrease} in $D$.
     \end{solution}
 
@@ -115,7 +115,7 @@ It was used as 2020's final exam.}} % Datum van tentamen
 		These modes are then called TE or TM modes respectively.
 	\end{solution}
 
-	\question[5] One of the methods to couple input light into an optical waveguide is prism coupling where you place a glass prism on top the optical waveguide. Explain why a prism is needed in this configuration?
+	\question[5] One of the methods to couple input light into an optical waveguide is prism coupling where you place a glass prism on top of the optical waveguide. Explain why a prism is needed in this configuration?
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{figures/prismcoupling}
@@ -134,7 +134,9 @@ It was used as 2020's final exam.}} % Datum van tentamen
 	\begin{solution}
 		Refractive index $n$ describes how fast light travels through a medium as it's relation is $n = \frac{c}{v}$, where $v$ is the measured speed.
 		It effectively changes when the wavelength changes:
-		$n_{effective} = \frac{2\pi}{\lambda} n$.
+		\begin{displaymath}
+		n_{\mathrm{effective}} = \frac{2\pi}{\lambda} n.
+		\end{displaymath}
 		If $\lambda$ gets bigger, the effective refractive index gets smaller.
 	\end{solution}
 	
@@ -146,9 +148,9 @@ It was used as 2020's final exam.}} % Datum van tentamen
 			\centering
 			\includegraphics[scale=.1]{figures/gaussian}
 		\end{figure}
-		$b$ is the depth of focus and is related to the numerical aperture $\mathrm{NA}$ by $b=2 n \omega_0 / \mathrm{NA} = 2 Z_R$.
+		$b$ is the depth of focus and is related to the numerical aperture $\mathrm{NA}$ by $b=2 n w_0 / \mathrm{NA} = 2 Z_R$.
 		So with a higher $\mathrm{NA}$, the depth of focus gets smaller.
-		Also, $\omega_0$ is considered the beam waist and is roughly related to $\mathrm{NA}$ by $\omega_0 \propto \frac{1}{\mathrm{NA}}$, which results in a smaller beam waist if the numerical aperature gets higher.
+		Also, $w_0$ is considered the beam waist and is roughly related to $\mathrm{NA}$ by $w_0 \propto \frac{1}{\mathrm{NA}}$, which results in a smaller beam waist if the numerical aperature gets higher.
 	\end{solution}
 		
 	\question[5] A beam of light with intensity $I_0$ passes through two linear polarizers as shown above. The intensity of the final beam is $1/8 I_0$.
@@ -188,8 +190,8 @@ Explain the working principle of this system.
 	
 	Now, in the right image, the prism is submerged in the liquid, meaning other portions of the light will reflect and transmit according to the Fresnel equations.
 	The detector will measure a lower intensity as the light will leak out more at the prism interfaces when put in liquid than in air.
-	If the differenc is significant, the user will be notified.
-	%TODO LINK TO VIDEO.
+	If the difference is significant, the user will be notified.
+	To see this sensor in action, take a look at this video: \url{https://youtu.be/ZByijUX_TDY}.
 \end{solution}
 
 \question[15] An unpolarized light with an intensity of $I_0$ is incident on two linear polarizers (\SI{45}{\degree} and \SI{60}{\degree}) and a quarter-wave plate (QWP).
@@ -203,7 +205,15 @@ Explain the working principle of this system.
 	\begin{solution}
 		Unpolarized light contains polarized light in all possible directions.
 		When using Malus'law to calculate $I_1 = I_0\cos^2\theta$, we need to know the average of $\cos^2\theta$, because we want to know what happens to `each polarized part in the unpolarized light'.
-		The average of $\cos^2\theta = \frac{1}{2}$, so $I_1 = \frac{1}{2}I_0$.
+		To calculate the average of $\cos^2\theta$ we have
+		\begin{align*}
+			\sin^2\theta + \cos^2\theta = 1.
+		\end{align*}
+		If we take the average of this equation, we get
+		\begin{align*}
+			\langle\sin^2\theta\rangle + \langle\cos^2\theta\rangle = \langle 1\rangle = 1.
+		\end{align*}
+		Because  $\langle\sin^2\theta\rangle = \langle\cos^2\theta\rangle$, we can state that $\langle\cos^2\theta\rangle = \frac{1}{2}$. So $I_1 = \frac{1}{2}I_0$.
 	\end{solution}
 	\part What is the polarization state of the light after the QWP?
 	\begin{solution}
@@ -228,7 +238,7 @@ Explain the working principle of this system.
 		If not, then
 		\begin{align*}
 			E_y &= E_1 \\
-			E_x &= E1 \frac{\sin\left(k z-\omega t + \frac{\pi}{2}\right)}{\sin\left(k z -\omega t\right)} \\
+			E_x &= E_1 \frac{\sin\left(k z-\omega t + \frac{\pi}{2}\right)}{\sin\left(k z -\omega t\right)} \\
 			&= E_1 \cot\left(k z - \omega t\right).
 		\end{align*}		
 	\end{solution}
@@ -330,8 +340,8 @@ What is the minimum possible thickness of the film?
 	%TODO SKETCH REFLECTIONS
 	We got
 	\begin{align*}
-		2 n_{oil} t_m &= \left(m+\frac{1}{2}\right)\lambda \\
-		t_m &= \frac{1}{2n_{oil}}\left(m+\frac{1}{2}\right)\lambda.
+		2 n_{\mathrm{oil}} t_m &= \left(m+\frac{1}{2}\right)\lambda \\
+		t_m &= \frac{1}{2n_{\mathrm{oil}}}\left(m+\frac{1}{2}\right)\lambda.
 	\end{align*}
 	The minimum possible thickness is then
 	\begin{align*}
@@ -374,7 +384,7 @@ On your schematic write down each components' name explicitly and mention their 
 	\begin{solution}
 		The axial resolution is
 		\begin{align*}
-			l_c \approx 0.44 \frac{\lambda_0^2}{\Delta \lambda},
+			l_\mathrm{c} \approx 0.44 \frac{\lambda_0^2}{\Delta \lambda},
 		\end{align*}
 		so the higher the bandwidth, the shorter the coherence length resulting in a higher resolution.
 		Maximizing this bandwidth is the biggest challenge nex to lowering $\lambda_0^2$ as much as possible.
